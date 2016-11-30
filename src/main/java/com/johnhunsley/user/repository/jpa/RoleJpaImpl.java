@@ -32,4 +32,9 @@ public class RoleJpaImpl implements Role {
     public String getAuthority() {
         return authority;
     }
+
+    @Override
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 }

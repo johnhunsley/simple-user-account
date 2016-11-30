@@ -2,7 +2,6 @@ package com.johnhunsley.user.repository.jpa;
 
 import com.johnhunsley.user.domain.User;
 import com.johnhunsley.user.repository.UserRepository;
-import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -15,9 +14,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("userRepository")
 @Profile("jpa")
-@EnableScan
 public interface UserRepositoryJpaImpl extends UserRepository, CrudRepository<UserJpaImpl, Long> {
 
     @Override
     User findByUserName(String username);
+
+    @Override
+    User findById(Long id);
 }

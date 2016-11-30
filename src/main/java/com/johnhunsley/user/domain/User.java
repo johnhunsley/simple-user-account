@@ -12,6 +12,8 @@ public interface User extends UserDetails {
 
     Long getId();
 
+    void setPasswordHash(byte[] passwordHash);
+
     Account getAccount();
 
     void setAccount(Account account);
@@ -24,7 +26,15 @@ public interface User extends UserDetails {
 
     void setLastName(String lastName);
 
+    String getEmail();
+
+    void setEmail(String email);
+
     boolean isActive();
 
     void setActive(boolean active);
+
+    void addRole(Role role);
+
+    void setUsername(String s);
 }

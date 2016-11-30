@@ -1,6 +1,7 @@
 package com.johnhunsley.user.repository.jpa.dynamo;
 
 import com.johnhunsley.user.domain.Account;
+import com.johnhunsley.user.domain.Role;
 import com.johnhunsley.user.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -45,6 +46,41 @@ public class UserDynamoImpl implements User {
 
     @Override
     public void setLastName(String lastName) {
+
+    }
+
+    @Override
+    public void setPasswordHash(byte[] passwordHash) {
+
+    }
+
+    @Override
+    public String getEmail() {
+        return null;
+    }
+
+    @Override
+    public void setEmail(String email) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    @Override
+    public void setActive(boolean active) {
+
+    }
+
+    @Override
+    public void addRole(Role role) {
+
+    }
+
+    @Override
+    public void setUsername(String s) {
 
     }
 

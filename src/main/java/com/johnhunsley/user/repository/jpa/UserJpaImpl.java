@@ -77,6 +77,7 @@ public class UserJpaImpl implements User {
      * </p>
      * @param passwordHash
      */
+    @Override
     public void setPasswordHash(byte[] passwordHash) {
         byte[] base64Hash = Base64.getEncoder().encode(passwordHash);
         password = new String(base64Hash);
@@ -90,6 +91,11 @@ public class UserJpaImpl implements User {
     @Override
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    @Override
+    public void setUsername(String s) {
+        this.username = username;
     }
 
     @Override
@@ -113,6 +119,16 @@ public class UserJpaImpl implements User {
     }
 
     @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
     public boolean isActive() {
         return active.equals(YNEnum.Y);
     }
@@ -128,7 +144,8 @@ public class UserJpaImpl implements User {
         return roles;
     }
 
-    public void addAuthority(Role role) {
+    @Override
+    public void addRole(Role role) {
         if(roles == null) roles = new HashSet<>();
         roles.add((RoleJpaImpl)role);
     }
