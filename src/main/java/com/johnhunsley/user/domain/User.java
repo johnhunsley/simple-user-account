@@ -23,4 +23,8 @@ public interface User extends UserDetails {
     String getLastName();
 
     void setLastName(String lastName);
+
+    boolean isActive();
+
+    void setActive(boolean active);
 }

@@ -10,7 +10,9 @@ import java.util.Collection;
  */
 public interface Account {
 
-    Collection<User> getUsers();
+    Integer getId();
+
+    Collection<? extends User> getUsers();
 
     void addUser(User user);
 

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository("userRepository")
 @Profile("dynamo")
 @EnableScan
-public abstract class UserRepositoryDynamoImpl implements UserRepository, CrudRepository<UserDynamoImpl, Long> {
+public interface UserRepositoryDynamoImpl extends UserRepository, CrudRepository<UserDynamoImpl, Long> {
 
     @Override
-    public abstract User findByUserName(String username);
+    User findByUserName(String username);
 }
