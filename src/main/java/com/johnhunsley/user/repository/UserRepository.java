@@ -10,9 +10,10 @@ import com.johnhunsley.user.domain.User;
  */
 public interface UserRepository {
 
-    User findByUserName(String username);
+    User findByUsername(String username);
 
     void save(User user);
 
     User findById(Long id);
+
 }
