@@ -2,18 +2,19 @@ package com.johnhunsley.user.repository;
 
 import com.johnhunsley.user.domain.User;
 
+
 /**
  * @author John Hunsley
  *         jphunsley@gmail.com
  *         Date : 30/11/2016
  *         Time : 12:49
  */
-public interface UserRepository {
+public interface UserRepository<T extends User> {
 
-    User findByUsername(String username);
+    T findByUsername(String username);
 
-    void save(User user);
+    void save(T user);
 
-    User findById(Long id);
+    T findById(Long id);
 
 }

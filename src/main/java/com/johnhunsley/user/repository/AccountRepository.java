@@ -8,9 +8,9 @@ import com.johnhunsley.user.domain.Account;
  *         Date : 01/12/2016
  *         Time : 11:16
  */
-public interface AccountRepository {
+public interface AccountRepository<T extends Account> {
 
-    void save(Account account);
+    void save(T account);
 
-    Account findById(Account account);
+    Account findById(T account);
 }

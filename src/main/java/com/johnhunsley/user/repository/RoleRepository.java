@@ -10,11 +10,11 @@ import java.util.Collection;
  *         Date : 01/12/2016
  *         Time : 13:35
  */
-public interface RoleRepository {
+public interface RoleRepository<T extends Role> {
 
-    Collection<? extends Role> findAll();
+    Collection<T> findAll();
 
-    void save(Role role);
+    void save(T role);
 
     Role findById(Integer id);
 
