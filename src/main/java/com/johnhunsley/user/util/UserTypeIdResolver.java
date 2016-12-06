@@ -45,6 +45,7 @@ public class UserTypeIdResolver implements TypeIdResolver {
 
     public String idFromBaseType() {
         return idFromValueAndType(null, mBaseType.getRawClass());
+
     }
 
     /**
