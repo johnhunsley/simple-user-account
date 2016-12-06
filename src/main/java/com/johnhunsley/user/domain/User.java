@@ -1,5 +1,8 @@
 package com.johnhunsley.user.domain;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.johnhunsley.user.util.UserTypeIdResolver;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -8,6 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
  *         Date : 30/11/2016
  *         Time : 12:41
  */
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.CUSTOM,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "@class")
+@JsonTypeIdResolver(UserTypeIdResolver.class)
 public interface User extends UserDetails {
 
     Long getId();

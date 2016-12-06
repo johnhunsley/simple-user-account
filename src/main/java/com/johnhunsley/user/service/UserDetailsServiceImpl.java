@@ -21,15 +21,27 @@ public abstract class UserDetailsServiceImpl<T extends UserRepository> implement
     @Autowired
     protected T userRepository;
 
-    public final UserDetails loadUserByUsername(final String s) throws UsernameNotFoundException {
-        return userRepository.findByUsername(s);
+    public T getUserRepository() {
+        return userRepository;
     }
 
-    public final void saveUser(User user) {
+    public void setUserRepository(T userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+        return getUserByUsername(username);
+    }
+
+    public User getUserByUsername(final String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
-    public final User getById(final Long id) {
+    public User getById(final Long id) {
         return userRepository.findById(id);
     }
 
