@@ -3,7 +3,8 @@ package com.johnhunsley.user.util;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.DatabindContext;
 import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
+import com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
  *         Time : 16:19
  */
 @Configurable(preConstruction = true)
-public class UserTypeIdResolver implements TypeIdResolver {
+public class UserTypeIdResolver extends TypeIdResolverBase {
     private JavaType mBaseType;
 
     @Value("${domain.impl.package}")
@@ -39,7 +40,14 @@ public class UserTypeIdResolver implements TypeIdResolver {
      * @return
      */
     public String idFromValueAndType(Object value, Class<?> suggestedType) {
-        return null;
+        final String typeName = suggestedType.getName();
+
+        if(typeName.startsWith(domainImplPackage)) {
+            return typeName.substring(domainImplPackage.length() + 1);
+        }
+
+        throw new IllegalArgumentException(
+                suggestedType + " is not found within defined domain package "+domainImplPackage);
     }
 
 
@@ -57,9 +65,17 @@ public class UserTypeIdResolver implements TypeIdResolver {
      * @return
      * @throws IOException
      */
-    public JavaType typeFromId(DatabindContext context, String id) throws IOException {
+    public JavaType typeFromId(DatabindContext context, final String id) throws IOException {
         //try and use Class.forname by concatenating the domainImplPackage, plus dot, to the Id value
+        StringBuilder builder = new StringBuilder(domainImplPackage).append(".").append(id);
 
+        try {
+            Class clazz = Class.forName(builder.toString());
+            return TypeFactory.defaultInstance().constructSpecializedType(mBaseType, clazz);
+
+        } catch (ClassNotFoundException e) {
+            throw new IOException(e);
+        }
     }
 
     public String getDescForKnownTypeIds() {

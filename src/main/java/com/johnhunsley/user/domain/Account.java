@@ -1,5 +1,7 @@
 package com.johnhunsley.user.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Collection;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Collection;
  *         Date : 30/11/2016
  *         Time : 12:38
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public interface Account {
 
     Integer getId();

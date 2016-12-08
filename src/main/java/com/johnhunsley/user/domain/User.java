@@ -1,5 +1,6 @@
 package com.johnhunsley.user.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import com.johnhunsley.user.util.UserTypeIdResolver;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  *         Date : 30/11/2016
  *         Time : 12:41
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.CUSTOM,
         include = JsonTypeInfo.As.PROPERTY,
