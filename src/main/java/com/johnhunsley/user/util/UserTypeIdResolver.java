@@ -68,6 +68,10 @@ public class UserTypeIdResolver extends TypeIdResolverBase {
     @Value("${domain.impl.package}")
     private String domainImplPackage;
 
+    public void setDomainImplPackage(final String domainImplPackage) {
+        this.domainImplPackage = domainImplPackage;
+    }
+
     public void init(JavaType baseType) {
         mBaseType = baseType;
     }
