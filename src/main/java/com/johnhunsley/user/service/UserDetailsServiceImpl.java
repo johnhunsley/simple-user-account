@@ -1,6 +1,7 @@
 package com.johnhunsley.user.service;
 
 import com.johnhunsley.user.domain.Account;
+import com.johnhunsley.user.domain.Page;
 import com.johnhunsley.user.domain.User;
 import com.johnhunsley.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public abstract class UserDetailsServiceImpl<T extends UserRepository> implement
         return userRepository.findById(id);
     }
 
-    public abstract Collection<? extends User> pageAllUser(int pageSize, int pageNumber);
+    public abstract Page<? extends User> pageAllUser(int pageSize, int pageNumber);
 
     public abstract Collection<? extends User> pageAccountUsers(Account account,
                                                       int pageSize,
