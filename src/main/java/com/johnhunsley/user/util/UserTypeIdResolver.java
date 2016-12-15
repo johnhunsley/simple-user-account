@@ -68,8 +68,15 @@ public class UserTypeIdResolver extends TypeIdResolverBase {
     @Value("${domain.impl.package}")
     private String domainImplPackage;
 
+    @Value("${domain.impl.suffix}")
+    private String domainImplSuffix;
+
     public void setDomainImplPackage(final String domainImplPackage) {
         this.domainImplPackage = domainImplPackage;
+    }
+
+    public void setDomainImplSuffix(String domainImplSuffix) {
+        this.domainImplSuffix = domainImplSuffix;
     }
 
     public void init(JavaType baseType) {
@@ -91,8 +98,8 @@ public class UserTypeIdResolver extends TypeIdResolverBase {
     public String idFromValueAndType(Object value, Class<?> suggestedType) {
         final String typeName = suggestedType.getName();
 
-        if(typeName.startsWith(domainImplPackage)) {
-            return typeName.substring(domainImplPackage.length() + 1);
+        if(typeName.startsWith(domainImplPackage) && typeName.endsWith(domainImplSuffix)) {
+            return typeName.substring(domainImplPackage.length() + 1).replaceFirst(domainImplSuffix, "");
         }
 
         throw new IllegalArgumentException(
@@ -116,7 +123,7 @@ public class UserTypeIdResolver extends TypeIdResolverBase {
      */
     public JavaType typeFromId(DatabindContext context, final String id) throws IOException {
         //try and use Class.forname by concatenating the domainImplPackage, plus dot, to the Id value
-        StringBuilder builder = new StringBuilder(domainImplPackage).append(".").append(id);
+        StringBuilder builder = new StringBuilder(domainImplPackage).append(".").append(id).append(domainImplSuffix);
 
         try {
             Class clazz = Class.forName(builder.toString());

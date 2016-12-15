@@ -33,4 +33,8 @@ public interface Account {
 
     void addUser(User user);
 
+    String getName();
+
+    void setName(String name);
+
 }
