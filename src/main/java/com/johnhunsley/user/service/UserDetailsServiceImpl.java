@@ -65,7 +65,7 @@ public abstract class UserDetailsServiceImpl<T extends UserRepository> implement
                                                       int pageSize,
                                                       int pageNumber);
 
-    public abstract Collection<? extends User> searchAllUsers(String query, int pageSize, int pageNumber);
+    public abstract Page<? extends User> searchAllUsers(String query, int pageSize, int pageNumber);
 
     public abstract Collection<? extends User> searchAccountUsers(Account account,
                                                                   String query,
