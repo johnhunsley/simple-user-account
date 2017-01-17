@@ -11,3 +11,20 @@ Often n-tier systems are created with the intent of loose coupling between layer
 Please feel free to use this project however wish.
 
 [![Circle CI](https://circleci.com/gh/johnhunsley/simple-user-account.svg?style=svg)](https://circleci.com/gh/johnhunsley/simple-user-account)
+
+Build is available on jitpack.io
+
+    <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+    </repositories>
+
+    <dependency>
+	    <groupId>com.github.johnhunsley</groupId>
+	    <artifactId>simple-user-account</artifactId>
+	    <version>1.0</version>
+	</dependency>
+
+[![](https://jitpack.io/v/johnhunsley/simple-user-account.svg)](https://jitpack.io/#johnhunsley/simple-user-account)
