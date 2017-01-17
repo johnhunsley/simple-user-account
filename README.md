@@ -9,3 +9,5 @@ A simple Account, User, Role model for Spring Security integration. Provides a g
 Often n-tier systems are created with the intent of loose coupling between layers but still exhibit binding between the UI and concrete domain types. This effectivley binds the UI and all subsequent layers to the data model. In this project the UI and API have no dependency what so ever on the model as all domain types are defined as stereotypes. Simple user management is something which is often common to many projects and any implementation should be truely portable across different persistent stores. This application design allows us to port the API to whatever backend system we like so long as we implement the simple-user-account interfaces. We can implement the basic Account -> User -> Role concept with whatever we like - LDAP, Relational DB, NoSql, File, without the need to make any change to the UI or API.
 
 Please feel free to use this project however wish.
+
+[![Circle CI](https://circleci.com/gh/johnhunsley/simple-user-account.svg?style=svg)](https://circleci.com/gh/johnhunsley/simple-user-account)
