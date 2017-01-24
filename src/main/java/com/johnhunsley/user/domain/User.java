@@ -32,7 +32,7 @@ import java.util.Collection;
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.CUSTOM,
         include = JsonTypeInfo.As.PROPERTY,
-        property = "@class")
+        property = "class")
 @JsonTypeIdResolver(UserTypeIdResolver.class)
 public interface User extends UserDetails {
 
