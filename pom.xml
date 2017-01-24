@@ -6,7 +6,7 @@
 
     <groupId>com.johnhunsley.user</groupId>
     <artifactId>simple-user-account</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <dependencies>
 
