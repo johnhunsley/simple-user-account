@@ -2,7 +2,6 @@ package com.johnhunsley.user.util;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.SimpleType;
-import com.johnhunsley.user.domain.Account;
 import com.johnhunsley.user.domain.Role;
 import com.johnhunsley.user.domain.User;
 import org.junit.Before;
@@ -63,11 +62,11 @@ public class UserTypeIdResolverTest {
 
         }
 
-        public Account getAccount() {
+        public Integer getAccountId() {
             return null;
         }
 
-        public void setAccount(Account account) {
+        public void setAccountId(Integer accountId) {
 
         }
 

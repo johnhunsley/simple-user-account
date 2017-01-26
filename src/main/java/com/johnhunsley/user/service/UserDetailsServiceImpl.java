@@ -61,7 +61,7 @@ public abstract class UserDetailsServiceImpl<T extends UserRepository> implement
 
     public abstract Page<? extends User> pageAllUser(int pageSize, int pageNumber);
 
-    public abstract Collection<? extends User> pageAccountUsers(Account account,
+    public abstract Collection<? extends User> pageAccountUsers(Integer accountId,
                                                       int pageSize,
                                                       int pageNumber);
 

@@ -40,9 +40,9 @@ public interface User extends UserDetails {
 
     void setPasswordHash(byte[] passwordHash);
 
-    Account getAccount();
+    Integer getAccountId();
 
-    void setAccount(Account account);
+    void setAccountId(Integer accountId);
 
     String getFirstName();
 
