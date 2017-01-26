@@ -1,6 +1,9 @@
 package com.johnhunsley.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.johnhunsley.user.util.UserTypeIdResolver;
 
 import java.util.Collection;
 
@@ -25,6 +28,11 @@ import java.util.Collection;
  *         Time : 19:38
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.CUSTOM,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "class")
+@JsonTypeIdResolver(UserTypeIdResolver.class)
 public interface Account {
 
     Integer getId();
