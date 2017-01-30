@@ -1,6 +1,9 @@
 package com.johnhunsley.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.johnhunsley.user.util.UserTypeIdResolver;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
@@ -24,6 +27,11 @@ import org.springframework.security.core.GrantedAuthority;
  *         Time : 19:41
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.CUSTOM,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "class")
+@JsonTypeIdResolver(UserTypeIdResolver.class)
 public interface Role extends GrantedAuthority {
 
     Integer getId();
