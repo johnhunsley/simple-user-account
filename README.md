@@ -12,6 +12,7 @@ Please feel free to use this project however wish.
 
 [![Circle CI](https://circleci.com/gh/johnhunsley/simple-user-account.svg?style=svg)](https://circleci.com/gh/johnhunsley/simple-user-account)
 [![Code Climate](https://codeclimate.com/github/johnhunsley/simple-user-account/badges/gpa.svg)](https://codeclimate.com/github/johnhunsley/simple-user-account)
+[![Code Climate](https://codeclimate.com/github/johnhunsley/simple-user-account/badges/gpa.svg)](https://codeclimate.com/github/johnhunsley/simple-user-account)
 
 Build is available on jitpack.io
 
